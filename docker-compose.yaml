@@ -1,0 +1,32 @@
+version: '3'
+
+services:  
+  chat_db:
+    image: postgres:13
+    container_name: chat_db
+    environment:
+      - POSTGRES_DB=chat
+      - POSTGRES_USER=jobir
+      - POSTGRES_PASSWORD=123
+    volumes:
+      - chat_db:/var/lib/postgresql/data/
+
+  blog_app:
+    build: .
+    command: python manage.py runserver 0.0.0.0:8000
+    container_name: blog_app
+    depends_on:
+      - chat_db
+      - redis
+    ports:
+      - "8000:8000"
+    env_file:
+      - .env
+
+  redis:
+    image: redis:5
+    ports:
+      - "6379:6379"
+
+volumes:
+  chat_db:

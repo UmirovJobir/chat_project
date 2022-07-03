@@ -1,0 +1,63 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css" integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T" crossorigin="anonymous">
+    <meta charset="UTF-8">
+    <title>Login</title>
+</head>
+
+
+<style>
+
+        .center-column{
+        width: 600px;
+        margin: 20px auto;
+        padding: 20px;
+        background-color: #fff;
+        border-radius: 3px;
+        box-shadow: 6px 2px 30px 0px rgba(0,0,0,0.75);
+            /*font-size: 30px;*/
+    }
+        body{
+        background-color: #638CBB;
+    }
+        .submit{
+        background-color: #6BA3E8;
+    }
+        .header-bar {
+        display: flex;
+         justify-content: space-between;
+         padding: 10px;
+         border-radius: 5px 5px 0 0;
+        }
+
+         .button{
+              border: 1px solid #6BA3E8;
+              background-color: #6BA3E8;
+              color: #fff;
+              padding: 10px;
+              font-size: 20px;
+              border-radius: 5px;
+              cursor: pointer;
+              text-decoration: none;
+          }
+                   input{
+            width: 100%;
+            padding: 12px 20px;
+            margin: 8px 0;
+            box-sizing: border-box;
+            }
+
+
+
+</style>
+
+<body>
+    <form class="center-column" action="{% url 'login' %}" method="post" >
+        <h1>Log in</h1>
+        {% csrf_token %}
+        {{ form }}
+        <input class="button" type="submit" value="Login">
+    </form>
+</body>
+</html>
