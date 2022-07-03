@@ -3,7 +3,7 @@
 python3 manage.py makemigrations
 python3 manage.py migrate
 
-if [ "$POSTGRES_DB" = "blog" ]
+if [ "$POSTGRES_DB" = "chat" ]
 then
     echo "Waiting for postgres..."
 

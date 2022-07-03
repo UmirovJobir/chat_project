@@ -11,10 +11,10 @@ services:
     volumes:
       - chat_db:/var/lib/postgresql/data/
 
-  blog_app:
+  chat_app:
     build: .
     command: python manage.py runserver 0.0.0.0:8000
-    container_name: blog_app
+    container_name: chat
     depends_on:
       - chat_db
       - redis
