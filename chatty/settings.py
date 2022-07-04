@@ -26,7 +26,7 @@ BASE_DIR = Path(__file__).resolve().parent.parent
 # See https://docs.djangoproject.com/en/3.1/howto/deployment/checklist/
 
 # SECURITY WARNING: keep the secret key used in production secret!
-SECRET_KEY ='fy9%x8r(bm7vanef_qub9&r#u&&t#e@9wc-7(+)fm55ei!lzg2' #os.environ.get("SECRET_KEY")  #'fy9%x8r(bm7vanef_qub9&r#u&&t#e@9wc-7(+)fm55ei!lzg2'
+SECRET_KEY =os.environ.get("SECRET_KEY")  #'fy9%x8r(bm7vanef_qub9&r#u&&t#e@9wc-7(+)fm55ei!lzg2'
 
 # SECURITY WARNING: don't run with debug turned on in production!
 DEBUG = True
@@ -100,17 +100,17 @@ DEFAULT_AUTO_FIELD = 'django.db.models.AutoField'
 
 DATABASES = {
     'default': {
-        # 'ENGINE': 'django.db.backends.postgresql',
-        # 'NAME': os.environ.get('POSTGRES_DB'), 
-        # 'USER': os.environ.get('POSTGRES_USER'), 
-        # 'PASSWORD': os.environ.get('POSTGRES_PASSWORD'),
-        # 'HOST': os.environ.get('POSTGRES_HOST'),    
-        # 'PORT': os.environ.get('POSTGRES_PORT')
-        'POSTGRES_DB':'new_db',
-        'POSTGRES_USER':'new_user',
-        'POSTGRES_PASSWORD':'123',
-        'POSTGRES_HOST':'127.0.0.1',
-        'POSTGRES_PORT':'5432',
+        'ENGINE': 'django.db.backends.postgresql',
+        'NAME': os.environ.get('POSTGRES_DB'), 
+        'USER': os.environ.get('POSTGRES_USER'), 
+        'PASSWORD': os.environ.get('POSTGRES_PASSWORD'),
+        'HOST': os.environ.get('POSTGRES_HOST'),    
+        'PORT': os.environ.get('POSTGRES_PORT')
+        # 'POSTGRES_DB':'new_db',
+        # 'POSTGRES_USER':'new_user',
+        # 'POSTGRES_PASSWORD':'123',
+        # 'POSTGRES_HOST':'127.0.0.1',
+        # 'POSTGRES_PORT':'5432',
     }
 }
 
