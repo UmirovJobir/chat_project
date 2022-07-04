@@ -17,7 +17,7 @@ services:
     image: redis:5
     ports:
       - "6379:6379"
-      
+
   chat_db:
     image: postgres:13
     container_name: chat_db
@@ -30,3 +30,5 @@ services:
 
 volumes:
   chat_db:
+
+  
