@@ -5,7 +5,7 @@ services:
     image: postgres:13
     container_name: chat_db
     environment:
-      - POSTGRES_DB=postgres
+      - POSTGRES_DB=chat
       - POSTGRES_USER=postgres
       - POSTGRES_PASSWORD=123
     volumes:
