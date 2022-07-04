@@ -6,6 +6,8 @@ WORKDIR /code
 COPY requirements.txt ./code
 COPY . .
 
+# RUN  docker rm $(docker ps -a -q)
+# RUN  docker rmi $(docker images -q)
 
 RUN apt-get update \
     && apt-get install -yyq netcat
