@@ -17,7 +17,6 @@ jobs:
         PASSWORD: jobir2000JOBIR
         PORT: 22
         script: |
-          
           cd ~
           cd chat_project
           git pull
