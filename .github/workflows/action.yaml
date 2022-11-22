@@ -1,81 +1,81 @@
-# name: My name
+name: My name
 
-# on: [push]
+on: [push]
 
-# jobs:
-#   build:
+jobs:
+  build:
 
-#     runs-on: ubuntu-latest
+    runs-on: ubuntu-latest
 
-#     steps:
-#     - uses: actions/checkout@v1
-#     - name: Executing remote command
-#       uses: appleboy/ssh-action@master
-#       with:
-#         host: 172.104.143.233
-#         USERNAME: root
-#         PASSWORD: jobir2000JOBIR
-#         PORT: 22
-#         script: |
-#           cd ~
-#           cd chat_project
-#           git pull
-#           docker-compose down
-#           docker-compose build
-#           docker-compose up
+    steps:
+    - uses: actions/checkout@v1
+    - name: Executing remote command
+      uses: appleboy/ssh-action@master
+      with:
+        host: 139.144.23.240
+        USERNAME: root
+        PASSWORD: jobir2000JOBIR
+        PORT: 22
+        script: |
+          cd ~
+          cd chat_project
+          git pull
+          docker-compose down
+          docker-compose build
+          docker-compose up
 
 # This is a basic workflow to help you get started with Actions
 
-name: CI/CD Django, Postres, Linode
+# name: CI/CD Django, Postres, Linode
 
-# Controls when the workflow will run
-on:
-  # Triggers the workflow on push or pull request events but only for the "master" branch
-  push:
-    branches: [ "master" ]
-  pull_request:
-    branches: [ "master" ]
+# # Controls when the workflow will run
+# on:
+#   # Triggers the workflow on push or pull request events but only for the "master" branch
+#   push:
+#     branches: [ "master" ]
+#   pull_request:
+#     branches: [ "master" ]
 
-  # Allows you to run this workflow manually from the Actions tab
-  workflow_dispatch:
+#   # Allows you to run this workflow manually from the Actions tab
+#   workflow_dispatch:
 
-# A workflow run is made up of one or more jobs that can run sequentially or in parallel
-jobs:
-  # This workflow contains a single job called "build"
-  build:
-    # The type of runner that the job will run on
-    runs-on: ubuntu-latest
-    services:
-      postgres_main:
-        image: postgres:12
-        env:
-          POSTGRES_DB: chat
-          POSTGRES_USER: postgres
-          POSTGRES_PASSWORD: 123
-        ports:
-          - 5432:5432
-        options: --health-cmd pg_isready --health-interval 10s --health-timeout 5s --health-retries 5
+# # A workflow run is made up of one or more jobs that can run sequentially or in parallel
+# jobs:
+#   # This workflow contains a single job called "build"
+#   build:
+#     # The type of runner that the job will run on
+#     runs-on: ubuntu-latest
+#     services:
+#       postgres_main:
+#         image: postgres:12
+#         env:
+#           POSTGRES_DB: chat
+#           POSTGRES_USER: postgres
+#           POSTGRES_PASSWORD: 123
+#         ports:
+#           - 5432:5432
+#         options: --health-cmd pg_isready --health-interval 10s --health-timeout 5s --health-retries 5
 
-    # Steps represent a sequence of tasks that will be executed as part of the job
-    steps:
-      # Checks-out your repository under $GITHUB_WORKSPACE, so your job can access it
-      - name: Checkout code
-        uses: actions/checkout@v2
-      - name: Setup Python 3.6
-        user: actions/setup-python@v2
-        with:
-          python-version: 3.6
-      - name: Install requirements
-        run: pip install -r requirements.txt 
-      - name: Run Tests
-        env: 
-          DEBUG: "0"
-          DJANGO_SECRET_KEY: CI_CD_TEST_KEY
-          POSTGRES_DB: chat
-          POSTGRES_USER: postgres
-          POSTGRES_PASSWORD: 123
-          POSTGRES_PORT: 5432
-        run:
-          python manage.py test
+#     # Steps represent a sequence of tasks that will be executed as part of the job
+#     steps:
+#       # Checks-out your repository under $GITHUB_WORKSPACE, so your job can access it
+#       - name: Checkout code
+#         uses: actions/checkout@v2
+#       - name: Setup Python 3.6
+#         user: actions/setup-python@v2
+#         with:
+#           python-version: 3.6
+#       - name: Install requirements
+#         run: pip install -r requirements.txt 
+#       - name: Run Tests
+#         env: 
+#           DEBUG: "0"
+#           DJANGO_SECRET_KEY: CI_CD_TEST_KEY
+#           POSTGRES_DB: chat
+#           POSTGRES_USER: postgres
+#           POSTGRES_PASSWORD: 123
+#           POSTGRES_PORT: 5432
+#         run:
+#           python manage.py test
 
           
