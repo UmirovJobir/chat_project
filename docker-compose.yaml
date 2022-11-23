@@ -14,7 +14,7 @@ services:
       - .env
 
   redis:
-    image: redis:5
+    image: redis
     ports:
       - "6379:6379"
 
