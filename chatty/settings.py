@@ -98,16 +98,21 @@ DEFAULT_AUTO_FIELD = 'django.db.models.AutoField'
 DATABASES = {
     'default': {
         'ENGINE': 'django.db.backends.postgresql_psycopg2',
-        'NAME': os.environ.get('POSTGRES_DB'),
-        'USER': os.environ.get('POSTGRES_USER'),
-        'PASSWORD': os.environ.get('POSTGRES_PASSWORD'),
-        'HOST': os.environ.get('POSTGRES_HOST'),
-        'PORT': os.environ.get('POSTGRES_PORT')
+        # 'NAME': os.environ.get('POSTGRES_DB'),
+        # 'USER': os.environ.get('POSTGRES_USER'),
+        # 'PASSWORD': os.environ.get('POSTGRES_PASSWORD'),
+        # 'HOST': os.environ.get('POSTGRES_HOST'),
+        # 'PORT': os.environ.get('POSTGRES_PORT')
         # 'NAME': 'new_db',
         # 'USER': 'postgres',
         # 'PASSWORD': '123',
         # 'HOST': '127.0.0.1',
         # 'PORT': '5432',
+        'NAME': 'chat',
+        'USER': 'postgres',
+        'PASSWORD': '123',
+        'HOST': 'chat_db',
+        'PORT': '5432',
     }
 }
 
