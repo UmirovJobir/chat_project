@@ -13,6 +13,9 @@ fi
 
 sleep 10
 
+echo "Docker command to start Redis"
+docker run -d -p 6379:6379 redis
+
 echo "Apply database migrations"
 python3 manage.py migrate
 
