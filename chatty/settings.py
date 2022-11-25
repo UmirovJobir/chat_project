@@ -78,7 +78,7 @@ CHANNEL_LAYERS = {
     'default': {
         'BACKEND': 'channels_redis.core.RedisChannelLayer',
         'CONFIG': {
-            'hosts': [(os.environ.get('POSTGRES_HOST'), 6379)],
+            'hosts': [('139.144.23.240', 6379)],
         }
     }
 }
